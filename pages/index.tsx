@@ -1,60 +1,54 @@
 import Head from "next/head";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import BottomSlider from "../components/BottomSlider";
 import HeaderNav from "../components/Header";
-import { colors } from "../variants";
-
-import {
-  MouseParallaxContainer,
-  MouseParallaxChild,
-} from "react-parallax-mouse";
+import { AppContext } from "../providers/AppProvier";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  const ref = useRef();
+  const { theme } = useContext(AppContext);
 
-  useEffect(() => {
-    document.onmousemove = function (e) {
-      document.body.style.setProperty("--x", e.clientX + "px");
-      document.body.style.setProperty("--y", e.clientY + "px");
-
-      ref.current.style.setProperty(
-        "--y",
-        (e.clientY - window.innerHeight / 2) / 50 + "px"
-      );
-      ref.current.style.setProperty(
-        "--x",
-        (e.clientX - window.innerWidth / 2) / 50 + "px"
-      );
-    };
-  }, [ref.current]);
+  const variants = {
+    hidden: { opacity: 0, y: 10 },
+    enter: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
+  };
 
   return (
     <div
-      className={`h-screen bg-[${colors.background}] border-[#317774] border-b-8`}
+      className="h-screen border-b-8"
+      style={{
+        borderColor: theme.primary,
+      }}
     >
       <Head>
-        <title>Create Next App</title>
+        <title>FineTurtle | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="h-full">
         <HeaderNav />
-        <div className="items-center justify-center w-full h-full flex">
+        <motion.div
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          variants={variants}
+          transition={{ ease: "backOut" }}
+          className="items-center justify-center w-full h-full flex overflow-hidden absolute"
+        >
           <img
-            ref={ref}
-            src="/img/subtract.jpg"
-            width="782"
-            height="285"
+            src={`/img/themes/${theme.name}/subtract.jpg`}
             style={{
-              "-webkit-mask-image": `url("/img/middle-logo.png")`,
+              WebkitMaskImage: `url("/img/middle-logo.png")`,
+              WebkitMaskSize: `contain`,
               mask: `url("/img/middle-logo.png")`,
-              "-webkit-mask-repeat": "no-repeat",
-              "mask-repeat": "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              maskSize: "contain",
+              maskRepeat: "no-repeat",
             }}
-            className="mt-96 image-masked"
+            className="lg:mt-96 image-masked w-full lg:w-auto"
           />
-        </div>
+        </motion.div>
       </main>
 
       <BottomSlider />

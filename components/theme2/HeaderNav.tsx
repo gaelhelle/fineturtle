@@ -126,7 +126,7 @@ const MobileLink = (props) => {
 
 export default HeaderNav;
 
-const HeaderMenuItem = ({ children, title, onClick, ...props }) => {
+const HeaderMenuItem = ({ children, title, onClick, ...props }: any) => {
   const { theme } = useContext(AppContext);
   const router = useRouter();
 

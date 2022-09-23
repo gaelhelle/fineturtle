@@ -12,29 +12,8 @@ body {
 
 * {
   box-sizing: border-box;
-}
-
-* {
-  cursor: none;
   margin: 0;
   padding: 0;
-}
-
-body:before {
-  content: "";
-  position: absolute;
-  z-index: 999;
-  top: var(--y);
-  left: var(--x);
-  right: 0;
-  bottom: 0;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  mix-blend-mode: difference;
-  pointer-events: none;
 }
 
 .image-masked {

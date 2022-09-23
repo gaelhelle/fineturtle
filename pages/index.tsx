@@ -1,22 +1,30 @@
 import Head from "next/head";
-import { useContext, useEffect, useRef } from "react";
-import BottomSlider from "../components/BottomSlider";
-import HeaderNav from "../components/Header";
+import { useContext } from "react";
 import { AppContext } from "../providers/AppProvier";
-import { motion } from "framer-motion";
+import Theme1Index from "./theme1";
+import Theme2Index from "./theme2";
 
 export default function Home() {
-  const { theme } = useContext(AppContext);
+  const { theme, setShowSettingsModal } = useContext(AppContext);
 
-  const variants = {
-    hidden: { opacity: 0, y: 10 },
-    enter: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -10 },
-  };
+  let render = <Theme1Index />;
+
+  switch (theme.name) {
+    case "theme2_palette_1": {
+      render = <Theme2Index />;
+    }
+    case "theme2_palette_2": {
+      render = <Theme2Index />;
+    }
+  }
 
   return (
     <div
-      className="h-screen border-b-8"
+      className={` ${
+        theme.name === "theme1_palette_1" || theme.name === "theme1_palette_2"
+          ? "border-b-8 h-screen"
+          : ""
+      }`}
       style={{
         borderColor: theme.primary,
       }}
@@ -26,32 +34,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-full">
-        <HeaderNav />
-        <motion.div
-          initial="hidden"
-          animate="enter"
-          exit="exit"
-          variants={variants}
-          transition={{ ease: "backOut" }}
-          className="items-center justify-center w-full h-full flex overflow-hidden absolute"
-        >
-          <img
-            src={`/img/themes/${theme.name}/subtract.jpg`}
-            style={{
-              WebkitMaskImage: `url("/img/middle-logo.png")`,
-              WebkitMaskSize: `contain`,
-              mask: `url("/img/middle-logo.png")`,
-              WebkitMaskRepeat: "no-repeat",
-              maskSize: "contain",
-              maskRepeat: "no-repeat",
-            }}
-            className="lg:mt-96 image-masked w-full lg:w-auto"
-          />
-        </motion.div>
-      </main>
-
-      <BottomSlider />
+      <main className="h-full">{render}</main>
     </div>
   );
 }

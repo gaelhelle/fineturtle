@@ -53,7 +53,7 @@ const BottomSlider = () => {
   );
 };
 
-const SliderItem = ({ type }) => {
+const SliderItem = ({ type }: any) => {
   const { theme } = useContext(AppContext);
   const phrases = ["Subscribe", "SUBSCRIBE"];
 

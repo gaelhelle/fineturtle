@@ -20,7 +20,7 @@ export const Modal = (props: ModalType) => {
     useContext(AppContext);
 
   return (
-    <div className="fixed z-20 w-screen h-screen left-0 right-0 top-0 bg-black/90 transition-all text-white p-20">
+    <div className="fixed z-[100] w-screen h-screen left-0 right-0 top-0 bg-black/90 transition-all text-white p-20">
       <div className="relative h-full">
         <div
           className="absolute top-0 right-0 p-4"

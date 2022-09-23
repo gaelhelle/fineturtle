@@ -20,8 +20,6 @@ const HeaderMenuItem = ({ children, onClick, ...props }) => {
     };
   }, []);
 
-  console.log(scrollPosition);
-
   return (
     <div
       className={`headerMenuItem-${

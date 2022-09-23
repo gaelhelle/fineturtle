@@ -1,21 +1,14 @@
 import Image from "next/image";
-import HeaderMenuItem from "./HeaderMenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { faGear, faPause } from "@fortawesome/free-solid-svg-icons";
-import {
-  faChessKing,
-  faCircleXmark,
-} from "@fortawesome/free-regular-svg-icons";
-import { useContext, useState } from "react";
-import { AppContext } from "../providers/AppProvier";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../providers/AppProvier";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
-import { theme1_palette_1 } from "../variants";
+import { useRouter } from "next/router";
 
 const HeaderNav = () => {
-  const { theme, setShowSettingsModal } = useContext(AppContext);
+  const { theme } = useContext(AppContext);
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
   const variants = {
@@ -36,33 +29,32 @@ const HeaderNav = () => {
   };
 
   return (
-    <div className="fixed px-8 lg:px-32 mt-8 flex items-center justify-between w-full z-10">
-      <Link href="/" className="z-50 fixed">
-        <Image
-          src={`/img/themes/${theme.name}/logo.svg`}
-          width="121"
-          height="34"
-        />
-      </Link>
-
-      <div className="items-center space-x-4 hidden lg:flex">
-        <Link href="/lounge">
-          <HeaderMenuItem>Lounge</HeaderMenuItem>
+    <div className="px-8 lg:px-32 mt-8 flex items-center justify-between w-full border-b border-black/5 pb-8 relative z-50">
+      <div className="flex items-center">
+        <Link href="/">
+          <Image
+            src={`/img/themes/${theme.name}/logo.svg`}
+            width="121"
+            height="34"
+          />
         </Link>
 
-        <HeaderMenuItem>Manifesto</HeaderMenuItem>
-        <HeaderMenuItem>FineMap</HeaderMenuItem>
-        <HeaderMenuItem>FAQ</HeaderMenuItem>
-
-        <HeaderMenuItem>
+        <div className="items-center space-x-4 hidden lg:flex border-l border-black/10 py-1 ml-6 pl-6">
+          <Link href="/lounge">
+            <HeaderMenuItem title="Lounge " />
+          </Link>
+          <HeaderMenuItem title="Manifesto " />
+          <HeaderMenuItem title="FineMap " />
+          <HeaderMenuItem title="FAQ " />
+        </div>
+      </div>
+      <div className="flex items-center">
+        <HeaderMenuSocialItem>
           <FontAwesomeIcon icon={faTwitter} width="14" />
-        </HeaderMenuItem>
-        <HeaderMenuItem>
+        </HeaderMenuSocialItem>
+        <HeaderMenuSocialItem>
           <FontAwesomeIcon icon={faDiscord} width="14" />
-        </HeaderMenuItem>
-        <HeaderMenuItem onClick={() => setShowSettingsModal((state) => !state)}>
-          <FontAwesomeIcon icon={faGear} width="14" />
-        </HeaderMenuItem>
+        </HeaderMenuSocialItem>
       </div>
 
       <div className="lg:hidden">
@@ -133,3 +125,46 @@ const MobileLink = (props) => {
 };
 
 export default HeaderNav;
+
+const HeaderMenuItem = ({ children, title, onClick, ...props }) => {
+  const { theme } = useContext(AppContext);
+  const router = useRouter();
+
+  const routeName = router.route.toLowerCase().substring(1);
+
+  return (
+    <div
+      className={`headerMenuItem-${
+        theme.name
+      } headerMenuItem-${routeName} cursor-pointer text-xs rounded px-2 py-1 transition-all font-medium hover:opacity-100 ${
+        !onClick && "cursor-not-allowed"
+      } ${
+        routeName === title?.toLowerCase().replace(/\s/g, "")
+          ? "bg-[#202fd7] text-white"
+          : "opacity-40 "
+      }
+      `}
+      onClick={onClick}
+      {...props}
+      style={{}}
+    >
+      {title}
+    </div>
+  );
+};
+
+const HeaderMenuSocialItem = ({ children }) => {
+  const { theme } = useContext(AppContext);
+  const router = useRouter();
+
+  const routeName = router.route.toLowerCase().substring(1);
+
+  return (
+    <div
+      className={`headerMenuItem-${theme.name} headerMenuItem-${routeName} bg-blue-50 text-[#202FD7] h-6 flex items-center cursor-pointer text-xs rounded px-3 mx-2 transition-all font-medium  hover:opacity-100
+      `}
+    >
+      {children}
+    </div>
+  );
+};

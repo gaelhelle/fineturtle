@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../providers/AppProvier";
 
-const HeaderMenuItem = ({ children, onClick, ...props }) => {
+const HeaderMenuItem = ({ children, ...props }) => {
   const { theme } = useContext(AppContext);
   const router = useRouter();
 
@@ -26,10 +26,7 @@ const HeaderMenuItem = ({ children, onClick, ...props }) => {
         theme.name
       } headerMenuItem-${router.route.substring(1)}  ${
         scrollPosition && "headerMenuItem-scrolled"
-      } text-2xs rounded px-6 py-2 transition-all uppercase font-medium ${
-        !onClick && "cursor-not-allowed"
-      }`}
-      onClick={onClick}
+      } text-2xs rounded px-6 py-2 transition-all uppercase font-medium`}
       {...props}
       style={{}}
     >

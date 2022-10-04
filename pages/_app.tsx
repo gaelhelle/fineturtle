@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps, router }) {
             rel="stylesheet"
           />
         </Head>
-        <AnimatePresence exitBeforeEnter initial={false}>
+        <AnimatePresence exitBeforeEnter initial={true}>
           <Component {...pageProps} key={router.pathname} />
         </AnimatePresence>
       </>

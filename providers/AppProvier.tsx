@@ -25,16 +25,18 @@ export const AppProvider = ({ children }) => {
       {children}
       {showSettingsModal && <Modal />}
 
-      <div
+      {/* <div
         onClick={() => setShowSettingsModal((state) => !state)}
         className="absolute top-0 right-0 p-4"
       >
         <FontAwesomeIcon icon={faGear} width="14" />
-      </div>
+      </div> */}
 
       <style global jsx>{`
         body {
+          color: ${theme.text};
           background: ${theme.background};
+          letter-spacing: 1px;
         }
       `}</style>
 

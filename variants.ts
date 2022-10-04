@@ -2,6 +2,7 @@ import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 type Theme = {
   name: string;
+  text?: string;
   background: string;
   primary: string;
   secondary: string;
@@ -9,7 +10,8 @@ type Theme = {
 
 export const theme1_palette_1: Theme = {
   name: "theme1_palette_1",
-  background: "#F4F6F3",
+  background: "#FFF",
+  text: "#2E3333",
   primary: "#317774",
   secondary: "#C98474",
 };

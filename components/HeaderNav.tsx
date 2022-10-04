@@ -36,20 +36,13 @@ const HeaderNav = () => {
   };
 
   return (
-    <div className="fixed px-8 lg:px-32 mt-8 flex items-center justify-between w-full z-10">
+    <header className="fixed px-8 lg:px-32 mt-8 flex items-center justify-between w-full z-20">
       <Link href="/" className="z-50 fixed">
-        <Image
-          src={`/img/themes/${theme.name}/logo.svg`}
-          width="121"
-          height="34"
-        />
+        <Image src={`/img/icon-logo.svg`} width="30" height="30" />
       </Link>
 
       <div className="items-center space-x-4 hidden lg:flex">
-        <Link href="/lounge">
-          <HeaderMenuItem>Lounge</HeaderMenuItem>
-        </Link>
-
+        <HeaderMenuItem>Lounge</HeaderMenuItem>
         <HeaderMenuItem>Manifesto</HeaderMenuItem>
         <HeaderMenuItem>FineMap</HeaderMenuItem>
         <HeaderMenuItem>FAQ</HeaderMenuItem>
@@ -77,7 +70,7 @@ const HeaderNav = () => {
             initial="initial"
             variants={variants}
             transition={{ ease: [0.87, 0, 0.13, 1] }}
-            className="fixed top-0 left-0 right-0 h-full bg-white/60 backdrop-blur-xl px-8 py-6"
+            className="fixed z-[100] top-0 left-0 right-0 h-full bg-white/60 backdrop-blur-xl px-8 py-6"
           >
             <div className="flex justify-end">
               <div onClick={toggleMenuMobile}>
@@ -88,7 +81,7 @@ const HeaderNav = () => {
               </div>
             </div>
             <div>
-              <div className="text-2xl font-bold uppercase">
+              <div className="text-2xl  font-polysans-bulky">
                 <motion.div
                   initial="hidden"
                   animate="show"
@@ -105,7 +98,7 @@ const HeaderNav = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </header>
   );
 };
 

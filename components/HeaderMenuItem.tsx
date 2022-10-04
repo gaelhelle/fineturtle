@@ -2,34 +2,15 @@ import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../providers/AppProvier";
 
-const HeaderMenuItem = ({ children, ...props }) => {
+type Props = {
+  children: any;
+};
+
+const HeaderMenuItem = (props: Props) => {
+  const { children } = props;
   const { theme } = useContext(AppContext);
-  const router = useRouter();
-
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = () => {
-    const position = window.pageYOffset > 440 ? 400 : 0;
-    setScrollPosition(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div
-      className={`headerMenuItem-${
-        theme.name
-      } headerMenuItem-${router.route.substring(1)}  ${
-        scrollPosition && "headerMenuItem-scrolled"
-      } text-2xs rounded px-6 py-2 transition-all uppercase font-medium`}
-      {...props}
-      style={{}}
-    >
+    <div className="text-xs rounded px-6 py-2 transition-all uppercase font-medium bg-gray-50 cursor-not-allowed font-thunder hover:bg-gray-100">
       {children}
     </div>
   );

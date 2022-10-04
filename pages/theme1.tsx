@@ -29,14 +29,14 @@ const Theme1Index = () => {
             >
               <img
                 src="/img/home/text-fine.png"
-                className="-top-20 relative md:block hidden"
+                className="-top-16 relative md:block hidden"
                 width="248"
                 height="94"
               />
             </motion.div>
 
             <div className="flex flex-col items-center justify-center">
-              <div className="bg-gray-100 h-48 w-56 relative -z-10 -mx-12 iosRounded"></div>
+              <div className="bg-gray-100 h-48 w-64 relative -z-10 -mx-12 iosRounded"></div>
               <div className="flex items-center mt-10 md:hidden">
                 <img src="/img/home/text-fine.png" width="100" height="40" />
                 <img src="/img/home/text-turtle.png" width="150" height="60" />
@@ -44,15 +44,15 @@ const Theme1Index = () => {
             </div>
 
             <div className="relative">
-              <div className="fixed md:absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pt-20 md:-ml-11">
+              <div className="fixed md:absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pt-20 md:-ml-16 pl-4">
                 <motion.div
                   initial={{ opacity: 0, scale: 1.2 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                 >
                   <img
-                    src="/img/home/photo_2022-09-29_12-01-46-removebg-preview.png"
-                    width="418"
-                    height="597"
+                    src="/img/home/photo_2022-09-30_12-04-37.png"
+                    width="528"
+                    height="754"
                     className="max-w-none h-auto"
                   />
                 </motion.div>
@@ -64,7 +64,7 @@ const Theme1Index = () => {
             >
               <img
                 src="/img/home/text-turtle.png"
-                className="top-20 relative  md:block hidden"
+                className="top-16 relative  md:block hidden"
                 width="356"
                 height="93"
               />

@@ -1,8 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
-import { Modal } from "../components/Modal";
+import React, { createContext, useState } from "react";
 import { theme1_palette_1 } from "../variants";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const AppContext = createContext(null);
 
@@ -23,15 +20,6 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={values}>
       {children}
-      {showSettingsModal && <Modal />}
-
-      {/* <div
-        onClick={() => setShowSettingsModal((state) => !state)}
-        className="absolute top-0 right-0 p-4"
-      >
-        <FontAwesomeIcon icon={faGear} width="14" />
-      </div> */}
-
       <style global jsx>{`
         body {
           color: ${theme.text};

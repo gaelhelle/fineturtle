@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
 import { useEffect } from "react";
-import { AppProvider } from "../providers/AppProvier";
+import { AppProvider } from "../providers/AppProvider";
 import "../style.css";
 
 function MyApp({ Component, pageProps, router }) {

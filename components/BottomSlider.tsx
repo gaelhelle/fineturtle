@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import TextScrambler from "react-scramble-text";
-import { AppContext } from "../providers/AppProvier";
+import { AppContext } from "../providers/AppProvider";
 
 const BottomSlider = () => {
   const [sliderIndex, setSliderIndex] = useState(0);

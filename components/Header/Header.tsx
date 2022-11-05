@@ -1,21 +1,12 @@
 import Image from "next/image";
-import HeaderMenuItem from "./HeaderMenuItem";
+import HeaderMenuItem from "./MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { faGear, faPause } from "@fortawesome/free-solid-svg-icons";
-import {
-  faChessKing,
-  faCircleXmark,
-} from "@fortawesome/free-regular-svg-icons";
-import { useContext, useState } from "react";
-import { AppContext } from "../providers/AppProvier";
+import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
-import { theme1_palette_1 } from "../variants";
 
 const HeaderNav = () => {
-  const { theme } = useContext(AppContext);
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
   const variants = {
@@ -111,14 +102,12 @@ const MobileLink = (props) => {
   };
 
   return (
-    <Link href={`/${title.toLowerCase()}`}>
-      <motion.div
-        variants={item}
-        className="border-b last:border-0 border-black/10 py-5"
-      >
-        <div>{title}</div>
-      </motion.div>
-    </Link>
+    <motion.div
+      variants={item}
+      className="border-b last:border-0 border-black/10 py-5"
+    >
+      <div>{title}</div>
+    </motion.div>
   );
 };
 

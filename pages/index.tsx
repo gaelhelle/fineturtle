@@ -1,11 +1,8 @@
 import Head from "next/head";
-import { useContext } from "react";
-import { AppContext } from "../providers/AppProvier";
-import Theme1Index from "./theme1";
+import HeaderNav from "../components/Header/Header";
+import HomePage from "./home";
 
 export default function Home() {
-  const { theme, setShowSettingsModal } = useContext(AppContext);
-
   return (
     <div>
       <Head>
@@ -13,8 +10,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <HeaderNav />
+
       <main className="h-full">
-        <Theme1Index />
+        <HomePage />
       </main>
     </div>
   );

@@ -1,7 +1,7 @@
 import { faGear, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { AppContext } from "../providers/AppProvier";
+import { AppContext } from "../providers/AppProvider";
 import {
   theme1_palette_1,
   theme1_palette_2,

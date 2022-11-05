@@ -1,23 +1,10 @@
-import BottomSlider from "../components/BottomSlider";
-import HeaderNav from "../components/HeaderNav";
 import { motion } from "framer-motion";
-import { useContext } from "react";
-import { AppContext } from "../providers/AppProvier";
 import FooterNote from "../components/FooterNote";
 
-const Theme1Index = () => {
-  const { theme } = useContext(AppContext);
-
-  const variants = {
-    hidden: { opacity: 0, y: 10 },
-    enter: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -10 },
-  };
-
+const HomePage = () => {
   return (
     <>
-      <HeaderNav />
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center overflow-hidden px-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +16,7 @@ const Theme1Index = () => {
             >
               <img
                 src="/img/home/text-fine.png"
-                className="-top-16 relative md:block hidden"
+                className="-top-32 md:-top-16 relative transition-all"
                 width="248"
                 height="94"
               />
@@ -37,23 +24,19 @@ const Theme1Index = () => {
 
             <div className="flex flex-col items-center justify-center">
               <div className="bg-gray-100 h-48 w-64 relative -z-10 -mx-12 iosRounded"></div>
-              <div className="flex items-center mt-10 md:hidden">
-                <img src="/img/home/text-fine.png" width="100" height="40" />
-                <img src="/img/home/text-turtle.png" width="150" height="60" />
-              </div>
             </div>
 
             <div className="relative">
-              <div className="fixed md:absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pt-20 md:-ml-16 pl-4">
+              <div className="fixed md:absolute z-10 ml-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pt-20 md:ml-7 pl-4">
                 <motion.div
-                  initial={{ opacity: 0, scale: 1.2 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 0.65 }}
                 >
                   <img
-                    src="/img/home/photo_2022-09-30_12-04-37.png"
-                    width="528"
-                    height="754"
-                    className="max-w-none h-auto"
+                    src="/img/home/turtle-min.png"
+                    width="746"
+                    height="1000"
+                    className="max-w-none h-auto scale-90 md:scale-100 transition-all origin-[20px_20px]"
                   />
                 </motion.div>
               </div>
@@ -64,7 +47,7 @@ const Theme1Index = () => {
             >
               <img
                 src="/img/home/text-turtle.png"
-                className="top-16 relative  md:block hidden"
+                className="-top-16 md:top-16 relative transition-all"
                 width="356"
                 height="93"
               />
@@ -77,4 +60,4 @@ const Theme1Index = () => {
   );
 };
 
-export default Theme1Index;
+export default HomePage;

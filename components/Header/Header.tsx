@@ -5,6 +5,7 @@ import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const HeaderNav = () => {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
@@ -33,15 +34,15 @@ const HeaderNav = () => {
       </Link>
 
       <div className="items-center space-x-4 hidden lg:flex">
-        <HeaderMenuItem>Lounge</HeaderMenuItem>
-        <HeaderMenuItem>Manifesto</HeaderMenuItem>
-        <HeaderMenuItem>FineMap</HeaderMenuItem>
-        <HeaderMenuItem>FAQ</HeaderMenuItem>
+        <HeaderMenuItem page="/lounge">Lounge</HeaderMenuItem>
+        <HeaderMenuItem page="/manifesto">Manifesto</HeaderMenuItem>
+        <HeaderMenuItem page="/finemap">FineMap</HeaderMenuItem>
+        <HeaderMenuItem page="/faq">FAQ</HeaderMenuItem>
 
-        <HeaderMenuItem>
+        <HeaderMenuItem page="https://twitter.com" externalUrl>
           <FontAwesomeIcon icon={faTwitter} width="14" />
         </HeaderMenuItem>
-        <HeaderMenuItem>
+        <HeaderMenuItem page="https://discord.com" externalUrl>
           <FontAwesomeIcon icon={faDiscord} width="14" />
         </HeaderMenuItem>
       </div>
@@ -79,10 +80,10 @@ const HeaderNav = () => {
                   variants={container}
                   transition={{ staggerChildren: 0.12 }}
                 >
-                  <MobileLink title="Lounge" />
-                  <MobileLink title="Manifesto" />
-                  <MobileLink title="Finemap" />
-                  <MobileLink title="FAQ" />
+                  <MobileLink page="/lounge" title="Lounge" />
+                  <MobileLink page="/manifesto" title="Manifesto" />
+                  <MobileLink page="/finemap" title="Finemap" />
+                  <MobileLink page="/faq" title="FAQ" />
                 </motion.div>
               </div>
             </div>
@@ -94,7 +95,8 @@ const HeaderNav = () => {
 };
 
 const MobileLink = (props) => {
-  const { title } = props;
+  const { title, page } = props;
+  const router = useRouter();
 
   const item = {
     hidden: { opacity: 0, x: 10 },
@@ -106,7 +108,14 @@ const MobileLink = (props) => {
       variants={item}
       className="border-b last:border-0 border-black/10 py-5"
     >
-      <div>{title}</div>
+      <Link href={page}>
+        <div className="flex gap-6 items-center">
+          {router.pathname === page && (
+            <div className="w-10 h-2 bg-[color:var(--theme-primary)]" />
+          )}
+          <span>{title}</span>
+        </div>
+      </Link>
     </motion.div>
   );
 };

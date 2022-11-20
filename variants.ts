@@ -1,40 +1,18 @@
-import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
-
 type Theme = {
-  name: string;
   text?: string;
-  background: string;
-  primary: string;
-  secondary: string;
+  background?: string;
+  backgroundDarker?: string;
+  primary?: string;
+  secondary?: string;
+  brownLight?: string;
 };
 
-export const theme1_palette_1: Theme = {
-  name: "theme1_palette_1",
-  background: "#FFF",
+export const themeWeb: Theme = {
+  background: "#F4F4F4",
+  backgroundDarker: "#E4E4E4",
   text: "#2E3333",
-  primary: "#317774",
-  secondary: "#C98474",
-};
-
-export const theme1_palette_2: Theme = {
-  name: "theme1_palette_2",
-  background: "#f1faee",
-  primary: "#457b9d",
-  secondary: "#e63946",
-};
-
-export const theme2_palette_1: Theme = {
-  name: "theme2_palette_1",
-  background: "#FFFFFF",
-  primary: "#202FD7",
-  secondary: "#E63946",
-};
-
-export const theme2_palette_2: Theme = {
-  name: "theme2_palette_2",
-  background: "#FFFFFF",
-  primary: "#317774",
-  secondary: "#C98474",
+  primary: "#C8FF88",
+  brownLight: "#EBE6E3",
 };
 
 // export const menu = ["Lounge", "Manifesto", "FineMap", "FAQ"];

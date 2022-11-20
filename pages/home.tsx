@@ -4,7 +4,7 @@ import FooterNote from "../components/FooterNote";
 const HomePage = () => {
   return (
     <>
-      <div className="h-screen flex items-center justify-center overflow-hidden px-10">
+      <div className="h-screen flex items-center justify-center overflow-hidden px-4 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,14 +16,14 @@ const HomePage = () => {
             >
               <img
                 src="/img/home/text-fine.png"
-                className="-top-32 md:-top-16 relative transition-all"
+                className="relative transition-all -translate-y-56 md:-translate-y-16"
                 width="248"
                 height="94"
               />
             </motion.div>
 
-            <div className="flex flex-col items-center justify-center">
-              <div className="bg-gray-100 h-48 w-64 relative -z-10 -mx-12 iosRounded"></div>
+            <div className="flex flex-col items-center justify-center w-28 md:w-auto">
+              <div className="bg-[color:var(--theme-background-darker)] h-48 w-64 relative -z-10 -mx-12 iosRounded"></div>
             </div>
 
             <div className="relative">
@@ -47,7 +47,7 @@ const HomePage = () => {
             >
               <img
                 src="/img/home/text-turtle.png"
-                className="-top-16 md:top-16 relative transition-all"
+                className="relative transition-all -translate-y-32 md:translate-y-16"
                 width="356"
                 height="93"
               />
@@ -55,7 +55,9 @@ const HomePage = () => {
           </div>
         </motion.div>
       </div>
-      <FooterNote />
+      <div className="fixed right-0 bottom-0 px-8 lg:px-32 mb-6 md:mb-12">
+        <FooterNote />
+      </div>
     </>
   );
 };

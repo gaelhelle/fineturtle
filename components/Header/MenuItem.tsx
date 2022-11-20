@@ -1,17 +1,32 @@
-import { useContext } from "react";
-import { AppContext } from "../../providers/AppProvider";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
+  page?: string;
+  externalUrl?: boolean;
   children: React.ReactNode;
 };
 
 const HeaderMenuItem = (props: Props) => {
-  const { children } = props;
+  const { children, page, externalUrl } = props;
+  const router = useRouter();
+
+  const buttonClasses = `text-sm rounded px-6 py-2 transition-all uppercase font-medium bg-black  font-thunder hover:bg-opacity-10 ${
+    router.pathname === page ? "bg-opacity-10" : "bg-opacity-3"
+  }`;
 
   return (
-    <div className="text-xs rounded px-6 py-2 transition-all uppercase font-medium bg-gray-50 cursor-not-allowed font-thunder hover:bg-gray-100">
-      {children}
-    </div>
+    <>
+      {externalUrl ? (
+        <a className={buttonClasses} href={page}>
+          {children}
+        </a>
+      ) : (
+        <Link href={page}>
+          <a className={buttonClasses}>{children}</a>
+        </Link>
+      )}
+    </>
   );
 };
 

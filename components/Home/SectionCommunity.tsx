@@ -1,10 +1,12 @@
 import SectionContainer from "../HOC/SectionInner";
 import { Tab } from "@headlessui/react";
 import { Fragment } from "react";
+import SectionRotatedText from "../SectionRotatedText";
 
 const SectionCommunity = () => {
   return (
     <SectionContainer name="community-tabs">
+      <SectionRotatedText value="Community First" />
       <Tab.Group>
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="max-w-md">

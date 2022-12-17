@@ -4,7 +4,8 @@ import Footer from "../../components/Footer";
 import HeaderNav from "../../components/Header/Header";
 import PageContainer from "../../components/HOC/PageContainer";
 import SectionContainer from "../../components/HOC/SectionInner";
-import HomePage from "../home";
+import SectionRotatedText from "../../components/SectionRotatedText";
+import TitleText from "../../components/TitleText";
 
 export default function Home() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -20,9 +21,8 @@ export default function Home() {
 
       <PageContainer>
         <SectionContainer name="finemap">
-          <h1 className="title-page text-6xl lg:text-7xl uppercase mb-6">
-            Our plan is only the beggining
-          </h1>
+          <SectionRotatedText value="Finemap" />
+          <TitleText value="Our plan is only the beggining" behind="Vision" />
           <div className="max-w-[500px] mb-32">
             <p>
               As humans, we are not moving away from the real world and
@@ -42,7 +42,7 @@ export default function Home() {
               showOverlay={showOverlay}
               setShowOverlay={setShowOverlay}
             >
-              <div className="flex flex-col lg:flex-row gap-20">
+              <div className="h-full flex flex-col lg:flex-row gap-20">
                 <div className="max-w-2xl">
                   <p className="mb-4">
                     FineTurtle is not an NFT project that is here to fit the
@@ -77,7 +77,7 @@ export default function Home() {
               showOverlay={showOverlay}
               setShowOverlay={setShowOverlay}
             >
-              <div className="flex flex-col lg:flex-row gap-20">
+              <div className="h-full  flex flex-col lg:flex-row gap-20">
                 <div className="max-w-2xl">
                   <p className="mb-4">
                     As FineTurtle, we are keen on building a cohesive NFT
@@ -113,7 +113,7 @@ export default function Home() {
               showOverlay={showOverlay}
               setShowOverlay={setShowOverlay}
             >
-              <div className="flex flex-col lg:flex-row gap-20">
+              <div className="h-full  flex flex-col lg:flex-row gap-20">
                 <div className="max-w-2xl">
                   <p className="mb-4">
                     Fine Turtle will indeed bridge the divide between NFTs and
@@ -153,7 +153,7 @@ export default function Home() {
               showOverlay={showOverlay}
               setShowOverlay={setShowOverlay}
             >
-              <div className="flex flex-col lg:flex-row gap-20">
+              <div className="h-full  flex flex-col lg:flex-row gap-20">
                 <div className="max-w-2xl">
                   <p className="mb-4">
                     With Web 3.0 promising to be the foundation of all
@@ -183,7 +183,7 @@ export default function Home() {
               showOverlay={showOverlay}
               setShowOverlay={setShowOverlay}
             >
-              <div className="flex flex-col lg:flex-row gap-20">
+              <div className="h-full  flex flex-col lg:flex-row gap-20">
                 <div className="max-w-2xl">
                   <p className="mb-4">
                     We have earlier made it clear that the community will be the
@@ -242,7 +242,7 @@ const FinemapBlock = (props) => {
     children,
   } = props;
 
-  const defaultDiv = useRef();
+  const defaultDiv = useRef<HTMLDivElement>();
 
   const [open, setOpen] = useState(false);
   const [containerDiv, setContainerDiv] = useState<HTMLElement>();
@@ -259,9 +259,9 @@ const FinemapBlock = (props) => {
   }, [showOverlay]);
 
   const divTop = defaultDiv?.current?.offsetTop;
-  const divLeft = defaultDiv?.current?.getBoundingClientRect().x;
-  const divWidth = defaultDiv?.current?.getBoundingClientRect().width;
-  const divHeight = defaultDiv?.current?.getBoundingClientRect().height;
+  const divLeft = defaultDiv?.current?.getBoundingClientRect()?.x;
+  const divWidth = defaultDiv?.current?.getBoundingClientRect()?.width;
+  const divHeight = defaultDiv?.current?.getBoundingClientRect()?.height;
 
   const handleClick = () => {
     if (showOverlay) return;
@@ -295,7 +295,9 @@ const FinemapBlock = (props) => {
         {id}
       </div>
       <div
-        className={`finemap-modal bg-[color:var(--theme-brown-light)] opacity-0 h-52 w-52 absolute left-0 lg:top-0 transition-all duration-300 z-40 scale-110 ease-in-out invisible`}
+        className={`finemap-modal bg-[color:var(--theme-brown-light)] opacity-0 h-52 w-52 absolute left-0 lg:top-0 transition-all duration-300 z-40 scale-110 ease-in-out ${
+          open ? "block" : "none"
+        }`}
         style={
           open
             ? {
@@ -310,11 +312,11 @@ const FinemapBlock = (props) => {
             : { width: divWidth, height: divHeight, top: divTop, left: divLeft }
         }
       >
-        <div className="p-12 relative">
+        <div className="p-12 h-full relative overflow-hidden">
           <div className="uppercase font-thunder-bold text-4xl mb-8">
             {title}
           </div>
-          <div>{children}</div>
+          <div className="relative h-full">{children}</div>
           <div
             onClick={() => setShowOverlay(false)}
             className="absolute top-12 right-12"

@@ -7,7 +7,9 @@ type Props = {
 const SectionContainer = ({ children, name, className }: Props) => {
   return (
     <section
-      className={`px-10 lg:px-32 py-44 2xl:py-60 ${className}`}
+      className={`px-10 lg:px-32 py-44 2xl:py-60 ${
+        className ? className : ""
+      } relative`}
       id={name}
     >
       <div className="mx-auto max-w-[1200px]">{children}</div>

@@ -434,6 +434,21 @@ h6 {
   background-color: var(--theme-text);
 }
 
+.text-stroke {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #00000033;
+}
+
+.text-stroke-light {
+  -webkit-text-stroke-color: #00000024;
+}
+
+::selection {
+  background: rgba(28, 28, 28, 0.301);
+  color: #fff;
+}
+
 @font-face {
   font-family: "Thunder Med";
   src: url("./public/fonts/thunder/Thunder-MediumLC.woff2") format("woff2"),

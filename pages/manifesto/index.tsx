@@ -3,6 +3,8 @@ import Footer from "../../components/Footer";
 import HeaderNav from "../../components/Header/Header";
 import PageContainer from "../../components/HOC/PageContainer";
 import SectionContainer from "../../components/HOC/SectionInner";
+import SectionRotatedText from "../../components/SectionRotatedText";
+import TitleText from "../../components/TitleText";
 import HomePage from "../home";
 
 export default function Home() {
@@ -17,10 +19,12 @@ export default function Home() {
 
       <PageContainer>
         <SectionContainer name="manifesto">
+          <SectionRotatedText value="Manifesto" />
           <div className="max-w-[600px] ">
-            <h1 className="title-page text-7xl uppercase mb-6">
-              Making the world a finer place, one NFT at a time
-            </h1>
+            <TitleText
+              value="Making the world a finer place, one NFT at a time"
+              behind="Ownership"
+            />
             <div className="text-sm text-content">
               <p>
                 For a long time, many NFT projects have been purely built upon

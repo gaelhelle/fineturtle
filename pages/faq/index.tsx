@@ -3,6 +3,8 @@ import Footer from "../../components/Footer";
 import HeaderNav from "../../components/Header/Header";
 import PageContainer from "../../components/HOC/PageContainer";
 import SectionContainer from "../../components/HOC/SectionInner";
+import SectionRotatedText from "../../components/SectionRotatedText";
+import TitleText from "../../components/TitleText";
 
 export default function Faq() {
   return (
@@ -16,10 +18,12 @@ export default function Faq() {
 
       <PageContainer>
         <SectionContainer name="faq">
+          <SectionRotatedText value="FAQ" />
           <div className="max-w-[500px]">
-            <h1 className="title-page text-6xl lg:text-7xl uppercase mb-32">
-              We are pionneers of digital real estate
-            </h1>
+            <TitleText
+              value=" We are pionneers of digital real estate"
+              behind="Community"
+            />
           </div>
           <div className="grid lg:grid-cols-3 gap-14">
             <FaqBlock title="Is there any chance holders will ever be able to earn real money from FineTurtle?">

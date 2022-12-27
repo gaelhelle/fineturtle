@@ -5,7 +5,7 @@ import PageContainer from "../../components/HOC/PageContainer";
 import SectionContainer from "../../components/HOC/SectionInner";
 import SectionRotatedText from "../../components/SectionRotatedText";
 import TitleText from "../../components/TitleText";
-import HomePage from "../home";
+import HomePage from "../home/home";
 
 export default function Home() {
   return (

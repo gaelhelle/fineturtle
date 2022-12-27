@@ -1,6 +1,6 @@
 import Head from "next/head";
 import HeaderNav from "../components/Header/Header";
-import HomePage from "./home";
+import HomePage from "./home/home";
 
 export default function Home() {
   return (

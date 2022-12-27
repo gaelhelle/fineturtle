@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import FooterNote from "../components/FooterNote";
+import FooterNote from "../../components/FooterNote";
 
 const HomePage = () => {
   return (

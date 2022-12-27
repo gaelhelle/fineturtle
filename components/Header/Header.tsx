@@ -30,7 +30,7 @@ const HeaderNav = () => {
   return (
     <header className="fixed px-8 lg:px-32 mt-8 flex items-center justify-between w-full z-20">
       <Link href="/" className="z-50 fixed">
-        <Image src={`/img/icon-logo.svg`} width="30" height="30" />
+        <Image src="/img/icon-logo.svg" width="30" height="30" />
       </Link>
 
       <div className="items-center space-x-4 hidden lg:flex">

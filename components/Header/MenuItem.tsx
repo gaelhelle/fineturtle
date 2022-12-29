@@ -11,7 +11,7 @@ const HeaderMenuItem = (props: Props) => {
   const { children, page, externalUrl } = props;
   const router = useRouter();
 
-  const buttonClasses = `text-sm rounded px-6 py-2 pb-1.5 transition-all uppercase font-medium bg-black  font-thunder hover:bg-opacity-10 ${
+  const buttonClasses = `text-sm rounded px-6 h-8 flex items-center transition-all uppercase font-medium bg-black  font-thunder hover:bg-opacity-10 ${
     router.pathname === page ? "bg-opacity-10" : "bg-opacity-3"
   }`;
 
@@ -23,7 +23,7 @@ const HeaderMenuItem = (props: Props) => {
         </a>
       ) : (
         <Link href={page}>
-          <a className={buttonClasses}>{children}</a>
+          <a className={`${buttonClasses} pt-0.5`}>{children}</a>
         </Link>
       )}
     </>

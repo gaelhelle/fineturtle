@@ -449,6 +449,13 @@ h6 {
   color: #fff;
 }
 
+@media (max-width: 768px) {
+  .finemapblock-div {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
 @font-face {
   font-family: "Thunder Med";
   src: url("./public/fonts/thunder/Thunder-MediumLC.woff2") format("woff2"),

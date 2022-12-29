@@ -1,11 +1,11 @@
 import Image from "next/image";
 import HeaderMenuItem from "./MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { socials } from "../../variants";
 
 const HeaderNav = () => {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
@@ -39,12 +39,11 @@ const HeaderNav = () => {
         <HeaderMenuItem page="/finemap">FineMap</HeaderMenuItem>
         <HeaderMenuItem page="/faq">FAQ</HeaderMenuItem>
 
-        <HeaderMenuItem page="https://twitter.com" externalUrl>
-          <FontAwesomeIcon icon={faTwitter} width="14" />
-        </HeaderMenuItem>
-        <HeaderMenuItem page="https://discord.com" externalUrl>
-          <FontAwesomeIcon icon={faDiscord} width="14" />
-        </HeaderMenuItem>
+        {socials.map((social) => (
+          <HeaderMenuItem key={social.name} page={social.url} externalUrl>
+            <FontAwesomeIcon icon={social.icon} width="14" />
+          </HeaderMenuItem>
+        ))}
       </div>
 
       <div className="lg:hidden">
@@ -62,18 +61,23 @@ const HeaderNav = () => {
             initial="initial"
             variants={variants}
             transition={{ ease: [0.87, 0, 0.13, 1] }}
-            className="fixed z-[100] top-0 left-0 right-0 h-full bg-white/60 backdrop-blur-xl px-8 py-6"
+            className="fixed z-[100] top-0 left-0 right-0 h-full bg-white/60 backdrop-blur-xl"
           >
-            <div className="flex justify-end">
+            <div className="flex justify-between items-center  px-8 py-6 shadow-md">
+              <div>
+                <Link href="/">
+                  <Image src="/img/full-logo.svg" width="160" height="40" />
+                </Link>
+              </div>
               <div onClick={toggleMenuMobile}>
                 <div className="h-12 w-12 flex items-center justify-center">
-                  <div className="rounded-full bg-black h-[3px] w-7 rotate-45 absolute" />
-                  <div className="rounded-full bg-black h-[3px] w-7 -rotate-45 absolute" />
+                  <div className="rounded-full bg-black h-[2.5px] w-6 rotate-45 absolute" />
+                  <div className="rounded-full bg-black h-[2.5px] w-6 -rotate-45 absolute" />
                 </div>
               </div>
             </div>
             <div>
-              <div className="text-2xl  font-polysans-bulky">
+              <div className="text-2xl font-polysans-bulky  px-8">
                 <motion.div
                   initial="hidden"
                   animate="show"
@@ -84,6 +88,18 @@ const HeaderNav = () => {
                   <MobileLink page="/manifesto" title="Manifesto" />
                   <MobileLink page="/finemap" title="Finemap" />
                   <MobileLink page="/faq" title="FAQ" />
+
+                  <div className="grid grid-cols-2 gap-4 mt-12 justify-center ">
+                    {socials.map((social) => (
+                      <a
+                        key={social.name}
+                        href={social.url}
+                        className="rounded bg-black/5 flex justify-center items-center p-3"
+                      >
+                        <FontAwesomeIcon icon={social.icon} width="22" />
+                      </a>
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </div>
@@ -104,15 +120,13 @@ const MobileLink = (props) => {
   };
 
   return (
-    <motion.div
-      variants={item}
-      className="border-b last:border-0 border-black/10 py-5"
-    >
+    <motion.div variants={item} className="mt-8">
       <Link href={page}>
-        <div className="flex gap-6 items-center">
-          {router.pathname === page && (
-            <div className="w-10 h-2 bg-[color:var(--theme-primary)]" />
-          )}
+        <div
+          className={`border  border-black/10 py-4 px-6 ${
+            router.pathname === page ? "bg-black text-white" : "inline-block"
+          }`}
+        >
           <span>{title}</span>
         </div>
       </Link>

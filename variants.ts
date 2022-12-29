@@ -1,3 +1,5 @@
+import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons";
+
 type Theme = {
   text?: string;
   background?: string;
@@ -16,4 +18,15 @@ export const themeWeb: Theme = {
 };
 
 // export const menu = ["Lounge", "Manifesto", "FineMap", "FAQ"];
-// export const socials = [faTwitter, faDiscord];
+export const socials = [
+  {
+    name: "twitter",
+    url: "https://twitter.com/FineTurtleNFT",
+    icon: faTwitter,
+  },
+  {
+    name: "discord",
+    url: "https://discord.gg/fineturtle",
+    icon: faDiscord,
+  },
+];

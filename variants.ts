@@ -9,7 +9,7 @@ type Theme = {
   brownLight?: string;
 };
 
-export const themeWeb: Theme = {
+export const theme: Theme = {
   background: "#F4F4F4",
   backgroundDarker: "#E4E4E4",
   text: "#2E3333",
@@ -17,7 +17,6 @@ export const themeWeb: Theme = {
   brownLight: "#EBE6E3",
 };
 
-// export const menu = ["Lounge", "Manifesto", "FineMap", "FAQ"];
 export const socials = [
   {
     name: "twitter",

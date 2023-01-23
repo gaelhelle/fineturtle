@@ -1,10 +1,4 @@
-import {
-  useViewportScroll,
-  motion,
-  useTransform,
-  useScroll,
-  MotionValue,
-} from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
 type Props = {

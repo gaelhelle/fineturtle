@@ -1,34 +1,11 @@
 import { AnimatePresence } from "framer-motion";
 import Head from "next/head";
-import { useEffect } from "react";
+import useMouseEffect from "../components/useMouseEffect";
 import { AppProvider } from "../providers/AppProvider";
 import "../style.css";
 
 function MyApp({ Component, pageProps, router }) {
-  useEffect(() => {
-    const mouseMove = (e) => {
-      window.document.body.style.setProperty(
-        "--xMask",
-        (e.pageX - window.innerWidth / 2) / 50 + "px"
-      );
-      window.document.body.style.setProperty(
-        "--yMask",
-        (e.pageY - window.innerHeight / 2) / 50 + "px"
-      );
-      window.document.body.style.setProperty("--x", e.pageX + "px");
-      window.document.body.style.setProperty("--y", e.pageY + "px");
-    };
-
-    window.addEventListener("mousemove", (e) => {
-      mouseMove(e);
-    });
-
-    return () => {
-      window.removeEventListener("mousemove", (e) => {
-        mouseMove(e);
-      });
-    };
-  }, []);
+  const mouseEffect = useMouseEffect();
 
   return (
     <AppProvider>

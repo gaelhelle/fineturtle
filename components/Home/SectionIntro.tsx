@@ -1,5 +1,4 @@
 import SectionContainer from "../HOC/SectionInner";
-import Image from "next/image";
 import TitleText from "../TitleText";
 import SectionRotatedText from "../SectionRotatedText";
 

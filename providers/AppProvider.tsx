@@ -1,21 +1,10 @@
-import React, { createContext, useState } from "react";
-import { themeWeb } from "../variants";
+import React, { createContext } from "react";
+import { theme } from "../variants";
 
 export const AppContext = createContext(null);
 
 export const AppProvider = ({ children }) => {
-  const [showSettingsModal, setShowSettingsModal] = useState(false);
-  const [theme, setTheme] = useState(themeWeb);
-  const [palette, setPalette] = useState(0);
-
-  const values = {
-    showSettingsModal,
-    setShowSettingsModal,
-    theme,
-    setTheme,
-    palette,
-    setPalette,
-  };
+  const values = {};
 
   return (
     <AppContext.Provider value={values}>

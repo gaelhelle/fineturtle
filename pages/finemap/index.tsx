@@ -7,35 +7,11 @@ import SectionContainer from "../../components/HOC/SectionInner";
 import finemapData from "../../components/Modal/data";
 import SectionRotatedText from "../../components/SectionRotatedText";
 import TitleText from "../../components/TitleText";
-import FinemapModal from "./modal";
+import FinemapModal from "../../components/Modal/modal";
 
 export default function Home() {
   const [showOverlay, setShowOverlay] = useState(null);
   const [hoverItem, setHoverItem] = useState(null);
-
-  /*
-  useEffect(() => {
-    document.body.style.overflow = showOverlay ? "hidden" : null;
-  }, [showOverlay]);
-  */
-
-  const hoverItemClitPath = () => {
-    switch (hoverItem) {
-      case 1:
-        return `polygon(4.9% 16.7%, 28.1% 16.7%, 28% 49%, 4.9% 49%)`;
-      case 2:
-        return `polygon(28.25% 16.7%, 50% 16.7%, 49.9% 49%, 28.25% 49%)`;
-      case 3:
-        return `polygon(50.1% 16.7%, 95% 16.7%, 95% 49%, 50.1% 49%)`;
-      case 4:
-        return `polygon(4.9% 84.5%, 28.1% 84.5%, 28% 49%, 4.9% 49%)`;
-      case 5:
-        return `polygon(28.25% 84.5%, 50% 84.5%, 49.9% 49%, 28.25% 49%)`;
-
-      default:
-        return `polygon(50.1% 84.5%, 95% 84.5%, 95% 49%, 50.1% 49%)`;
-    }
-  };
 
   return (
     <div>
@@ -82,13 +58,6 @@ export default function Home() {
                 src="/img/finemap/finemap-turtle-desktop-2.svg"
                 className="absolute w-full h-full left-0 right-0 bottom-0 transition  md:hidden opacity-30 rotate-90 scale-[2] top-32"
               />
-              {/* <img
-                src="/img/finemap/finemap-turtle-desktop-white-mask.svg"
-                className="absolute z-[1] w-full h-full top-0 left-0 right-0 bottom-0 transition hidden md:block pointer-events-none"
-                style={{
-                  clipPath: hoverItemClitPath(),
-                }}
-              /> */}
             </div>
           </div>
         </SectionContainer>

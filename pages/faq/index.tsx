@@ -10,7 +10,7 @@ export default function Faq() {
   return (
     <div>
       <Head>
-        <title>FineTurtle | Home</title>
+        <title>FineTurtle | FAQ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>FineTurtle | Home</title>
+        <title>FineTurtle | Lounge</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

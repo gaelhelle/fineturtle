@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import finemapData from "../../components/Modal/data";
+import finemapData from "./data";
 
 interface Props {
   id: number;

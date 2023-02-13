@@ -7,11 +7,11 @@ import SectionRotatedText from "../../components/SectionRotatedText";
 import TitleText from "../../components/TitleText";
 import HomePage from "../home/home";
 
-export default function Home() {
+export default function Manifesto() {
   return (
     <div>
       <Head>
-        <title>FineTurtle | Home</title>
+        <title>FineTurtle | Manifesto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
